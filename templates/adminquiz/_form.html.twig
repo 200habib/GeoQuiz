@@ -1,0 +1,39 @@
+{{ form_start(form) }}
+
+
+<div class="max-w-[500px] mx-auto">
+
+    <div class="bg-gray-50 p-6 rounded-lg shadow-md">
+
+
+    <div class="text-l font-bold">
+        {{ form_row(form.title, {
+            'attr': {
+                'class': 'w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-800'
+            }
+        }) }}
+    </div>
+
+    <div class="mt-6 text-l font-bold">
+        {{ form_row(form.category, {
+            'attr': {
+                'class': 'w-full px-4 py-2 bg-white border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none text-gray-800'
+            }
+        }) }}
+    </div>
+
+    <div class="text-center mt-6">
+        <button type="submit" class="w-full px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+            {{ button_label|default('Save') }}
+        </button>
+    </div>
+    
+    <div class="text-center mt-6">
+        <a href="{{ path('app_quiz_index') }}" class="text-blue-500 hover:text-blue-700 font-semibold">
+            <i class="fas fa-arrow-left mr-2"></i>Retour à la liste des quiz
+        </a>
+    </div>
+</div>
+</div>
+</div>
+{{ form_end(form) }}

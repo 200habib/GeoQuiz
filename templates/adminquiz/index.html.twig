@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Quiz{% endblock %}
+
+{% block body %}
+<div class="max-w-5xl mx-auto mt-10 p-6 bg-white">
+    <!-- Titolo -->
+    <h1 class="text-3xl font-bold text-blue-600 text-center">📚 Liste des Quiz</h1>
+
+    <!-- Sezione quiz -->
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {% for quiz in quizzes %}
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md hover:shadow-lg transition">
+                <h2 class="text-xl font-semibold text-gray-800">{{ quiz.title }}</h2>
+                <p class="text-gray-600 mt-2">📘 ID: {{ quiz.id }}</p>
+
+                <div class="mt-4 flex space-x-3">
+                    <a href="{{ path('app_quiz_show', {'id': quiz.id}) }}" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">👁️ Voir</a>
+                    <a href="{{ path('app_quiz_edit', {'id': quiz.id}) }}" class="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition">✏️ Modifier</a>
+                </div>
+            </div>
+        {% else %}
+            <p class="text-gray-500 text-center col-span-3">Aucun quiz trouvé. 😢</p>
+        {% endfor %}
+    </div>
+
+    <!-- Pulsante per creare un nuovo quiz -->
+    <div class="mt-8 text-center">
+        <a href="{{ path('app_quiz_new') }}" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+            ➕ Créer un nouveau quiz
+        </a>
+    </div>
+</div>
+{% endblock %}

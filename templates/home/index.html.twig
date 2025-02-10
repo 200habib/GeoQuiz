@@ -1,93 +1,102 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello{% endblock %}
+{% block title %}Quiz des Pays 🌍{% endblock %}
 
 {% block body %}
 
-    <!-- Navbar -->
+<!-- Section Hero -->
+<header class="text-gray-900 py-40 relative overflow-hidden">
+    <img src="https://www.geo.fr/imgre/fit/https.3A.2F.2Fwww.2Egeo.2Efr.2Fassets.2Fgeo.2Fmodern.2Fimages.2FknowledgeTests_hero.2Ef166484d2436302ba78b.2Ejpg/480x480/background-color/ffffff/quality/70/focus-point//picture.jpg" 
+         alt="Illustration de quiz géographique" 
+         class="absolute inset-0 w-full h-full object-cover ">
+    
+    <div class="container mx-auto text-center relative z-10">
+        <h1 class="text-6xl font-extrabold mb-6">
+            🌍 Bienvenue sur <span class="text-gray-700">Quiz des Pays!</span>
+        </h1>
+        <p class="text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            🧠 Testez vos connaissances géographiques et amusez-vous à deviner les pays à partir de leur nom ou de leur drapeau! 🚀
+        </p>
+        <a href="{{ path('app_category_quiz') }}"
+           class="bg-gray-800 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg transition-all duration-300 hover:scale-105 hover:bg-gray-900 flex items-center justify-center mx-auto w-fit">
+            🎯 Commencer le Quiz
+        </a>
+    </div>
+</header>
 
-
-    <!-- Section Hero -->
-    <header class="text-white py-20 relative overflow-hidden">
-        
-        <img src="https://www.geo.fr/imgre/fit/https.3A.2F.2Fwww.2Egeo.2Efr.2Fassets.2Fgeo.2Fmodern.2Fimages.2FknowledgeTests_hero.2Ef166484d2436302ba78b.2Ejpg/480x480/background-color/ffffff/quality/70/focus-point//picture.jpg" 
-             alt="Illustration de quiz géographique" 
-             class="absolute inset-0 w-full h-full object-cover opacity-30">
-        
-        <div class="container mx-auto text-center relative z-10">
-            <h1 class="text-5xl font-bold mb-4">Bienvenue sur Quiz des Pays !</h1>
-            <p class="text-xl mb-8">Testez vos connaissances géographiques. Devinez le bon pays à partir de son nom ou de son drapeau !</p>
-            <a href="#quiz" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-100">Commencer le Quiz</a>
+<!-- Section Informations -->
+<section class="container mx-auto my-16 px-4 text-gray-900">
+    <h2 class="text-3xl font-bold text-center mb-8">Comment ça marche ? 🚀</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h3 class="text-xl font-semibold mb-4">1. Choisissez le Quiz 🎮</h3>
+            <p class="text-gray-700">Sélectionnez parmi différents modes : devinez le pays par son nom ou son drapeau.</p>
         </div>
-    </header>
-
-    <!-- Section Informations -->
-    <section class="container mx-auto my-16 px-4">
-        <h2 class="text-3xl font-bold text-center mb-8">Comment ça marche ?</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Carte 1 -->
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                <h3 class="text-xl font-semibold mb-4">1. Choisissez le Quiz</h3>
-                <p class="text-gray-700">Sélectionnez parmi différents modes : devinez le pays par son nom ou son drapeau.</p>
-            </div>
-            <!-- Carte 2 -->
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                <h3 class="text-xl font-semibold mb-4">2. Répondez</h3>
-                <p class="text-gray-700">Entrez le nom du pays correct en fonction des indices fournis.</p>
-            </div>
-            <!-- Carte 3 -->
-            <div class="bg-white p-6 rounded-lg shadow-md text-center">
-                <h3 class="text-xl font-semibold mb-4">3. Gagnez des Points</h3>
-                <p class="text-gray-700">Obtenez des points pour chaque bonne réponse et montez dans le classement !</p>
-            </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h3 class="text-xl font-semibold mb-4">2. Répondez 🧠</h3>
+            <p class="text-gray-700">Entrez le nom du pays correct en fonction des indices fournis.</p>
         </div>
-    </section>
-
-    <!-- Section Statistiques -->
-    <section class="bg-gray-50 py-16">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8">Nos Statistiques</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-4xl font-bold text-blue-600">10 000+</h3>
-                    <p class="text-gray-700">Joueurs actifs</p>
-                </div>
-                <div>
-                    <h3 class="text-4xl font-bold text-blue-600">200+</h3>
-                    <p class="text-gray-700">Pays disponibles</p>
-                </div>
-                <div>
-                    <h3 class="text-4xl font-bold text-blue-600">50 000+</h3>
-                    <p class="text-gray-700">Quiz joués</p>
-                </div>
-            </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+            <h3 class="text-xl font-semibold mb-4">3. Gagnez des Points 🎯</h3>
+            <p class="text-gray-700">Obtenez des points pour chaque bonne réponse et montez dans le classement ! 🏆</p>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Section Galerie de Drapeaux -->
-    <section class="container mx-auto my-16 px-4">
-        <h2 class="text-3xl font-bold text-center mb-8">Galerie de Drapeaux</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            <img src="https://flagcdn.com/fr.svg" alt="Drapeau de la France" class="w-24 h-16 mx-auto">
-            <img src="https://flagcdn.com/de.svg" alt="Drapeau de l'Allemagne" class="w-24 h-16 mx-auto">
-            <img src="https://flagcdn.com/it.svg" alt="Drapeau de l'Italie" class="w-24 h-16 mx-auto">
-            <img src="https://flagcdn.com/es.svg" alt="Drapeau de l'Espagne" class="w-24 h-16 mx-auto">
-            <img src="https://flagcdn.com/jp.svg" alt="Drapeau du Japon" class="w-24 h-16 mx-auto">
-            <img src="https://flagcdn.com/us.svg" alt="Drapeau des États-Unis" class="w-24 h-16 mx-auto">
+<!-- Section Quiz en direct -->
+<section class="bg-gray-100 py-16 text-center">
+    <h2 class="text-3xl font-bold mb-8">Quiz en direct 🎥</h2>
+    <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+        Jouez en direct contre d'autres participants et testez vos compétences en temps réel !
+    </p>
+    <a href="#live-quiz" class="bg-gray-800 text-white px-6 py-3 rounded-full font-semibold hover:bg-gray-900">Rejoindre le Live 🔥</a>
+</section>
+
+<!-- Section Galerie de Drapeaux -->
+<section class="container mx-auto my-16 px-4">
+    <h2 class="text-3xl font-bold text-center mb-8">Galerie de Drapeaux 🌏</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <img src="https://flagcdn.com/fr.svg" alt="Drapeau de la France" class="w-24 h-16 mx-auto shadow-lg">
+        <img src="https://flagcdn.com/de.svg" alt="Drapeau de l'Allemagne" class="w-24 h-16 mx-auto shadow-lg">
+        <img src="https://flagcdn.com/it.svg" alt="Drapeau de l'Italie" class="w-24 h-16 mx-auto shadow-lg">
+        <img src="https://flagcdn.com/es.svg" alt="Drapeau de l'Espagne" class="w-24 h-16 mx-auto shadow-lg">
+        <img src="https://flagcdn.com/jp.svg" alt="Drapeau du Japon" class="w-24 h-16 mx-auto shadow-lg">
+        <img src="https://flagcdn.com/us.svg" alt="Drapeau des États-Unis" class="w-24 h-16 mx-auto shadow-lg">
+    </div>
+</section>
+
+<!-- Section Témoignages -->
+<section class="bg-gray-50 py-16 text-center">
+    <h2 class="text-3xl font-bold mb-8">Témoignages des joueurs 💬</h2>
+    <p class="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+        Découvrez ce que nos joueurs disent de nous !
+    </p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <p class="text-gray-700 italic">"Un jeu super addictif et éducatif !"</p>
+            <p class="mt-4 font-semibold">- Marie L.</p>
         </div>
-    </section>
-
-    <!-- Section Newsletter -->
-    <section class="bg-blue-600 text-white py-16">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8">Abonnez-vous à notre Newsletter</h2>
-            <p class="text-xl mb-8">Recevez des mises à jour, des astuces et des défis directement dans votre boîte de réception.</p>
-            <form class="flex justify-center">
-                <input type="email" placeholder="Votre adresse e-mail" class="px-4 py-2 rounded-l-lg w-64 focus:outline-none">
-                <button type="submit" class="bg-white text-blue-600 px-6 py-2 rounded-r-lg font-semibold hover:bg-blue-100">S'abonner</button>
-            </form>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <p class="text-gray-700 italic">"J'adore le mode multijoueur !"</p>
+            <p class="mt-4 font-semibold">- Lucas P.</p>
         </div>
-    </section>
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <p class="text-gray-700 italic">"Le meilleur quiz géographique !"</p>
+            <p class="mt-4 font-semibold">- Sophie D.</p>
+        </div>
+    </div>
+</section>
 
+<!-- Section Newsletter -->
+<section class="bg-gray-800 text-white py-16">
+    <div class="container mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-8">Abonnez-vous à notre Newsletter ✉️</h2>
+        <p class="text-xl mb-8">Recevez des mises à jour, des astuces et des défis directement dans votre boîte de réception. 📬</p>
+        <form class="flex justify-center">
+            <input type="email" placeholder="Votre adresse e-mail" class="px-4 py-2 rounded-l-lg w-64 focus:outline-none text-gray-900">
+            <button type="submit" class="bg-white text-gray-800 px-6 py-2 rounded-r-lg font-semibold hover:bg-gray-300">S'abonner 📝</button>
+        </form>
+    </div>
+</section>
 
 {% endblock %}
