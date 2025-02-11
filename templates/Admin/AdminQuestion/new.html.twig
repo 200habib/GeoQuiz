@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Question{% endblock %}
+
+{% block body %}
+
+    {{ include('Admin/AdminQuestion/_form.html.twig', {'button_label': 'Créer une nouvelle question', 'title': 'Modifier la question'}) }}
+
+    <a href="{{ path('app_question_index') }}">back to list</a>
+{% endblock %}

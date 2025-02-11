@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}📋 Question{% endblock %}
+
+{% block body %}
+<div class="flex justify-center items-start bg-gray-100 p-6">
+    <div class="w-full max-w-4xl">
+
+        <h1 class="text-4xl font-bold text-blue-600 text-center mb-6">📋 Détails de la Question</h1>
+
+        <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-300 mb-6">
+            
+
+            <div class="mb-4">
+                <p class="text-lg">❓ Question: {{ question.questionText }}</p>
+            </div>
+
+            <div class="flex space-x-4 mt-6">
+                <a href="{{ path('app_question_index') }}" class="text-blue-600 font-bold hover:underline">🔙 Retour à la liste</a>
+                <a href="{{ path('app_question_edit', {'id': question.id}) }}" class="text-yellow-600 font-bold hover:underline">✏️ Modifier</a>
+            </div>
+        </div>
+        
+        <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-300 mb-6">
+            {{ include('Admin/AdminQuestion/_delete_form.html.twig') }}
+        </div>
+
+    </div>
+</div>
+{% endblock %}

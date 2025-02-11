@@ -50,3 +50,35 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    let quizFilters = document.querySelectorAll("[id^='quizFilter']"); // Prende tutti i filtri
+
+    quizFilters.forEach((filter, index) => {
+        filter.addEventListener("change", function () {
+            let selectedQuiz = this.value;
+            
+            let questionSelect = document.querySelector("#answer_collection_answers_" + index + "_question");
+
+
+            console.log(questionSelect);
+            if (questionSelect) {
+                console.log(questionSelect);
+                let options = questionSelect.querySelectorAll("option");
+
+                questionSelect.value = "";
+
+                options.forEach(option => {
+                    let quizId = option.getAttribute("data-quiz-id");
+
+                    if (selectedQuiz === "" || quizId === selectedQuiz) {
+                        option.style.display = "block";
+                    } else {
+                        option.style.display = "none";
+                    }
+                });
+            }
+        });
+    });
+});

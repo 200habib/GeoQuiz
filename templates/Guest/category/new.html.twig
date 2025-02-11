@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Category{% endblock %}
+
+{% block body %}
+
+{{ include('category/_form.html.twig', {'update_button_label': 'Créer', 'button_label': 'Créer une catégorie'}) }}
+
+{% endblock %}

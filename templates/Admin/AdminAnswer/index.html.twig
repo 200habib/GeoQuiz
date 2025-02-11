@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}📋 Liste des Réponses{% endblock %}
+
+{% block body %}
+<div class="max-w-7xl mx-auto mt-10 p-6 bg-white">
+    <!-- Titre -->
+    <h1 class="text-3xl font-bold text-blue-600 text-center mb-6">📋 Liste des Réponses</h1>
+
+    <!-- Section des réponses, divisa per Quiz -->
+    {% for quiz in quizzes %}
+        <div class="mb-10">
+            <h2 class="text-2xl font-semibold text-blue-600 mb-4">📚 Quiz: {{ quiz.title }}</h2>
+
+            <!-- Risposte per ogni domanda del quiz -->
+            {% for question in quiz.questions %}
+                <div class="mb-6">
+                    
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">❓ Question: {{ question.questionText }}</h3>
+                    
+                    <!-- Risposte raggruppate per domanda -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        {% for answer in question.answers %}
+                            <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-300 hover:shadow-xl transition">
+                                <div class="flex justify-between items-center mb-4">
+                                    <h4 class="text-lg font-semibold text-blue-600">🆔 ID: {{ answer.id }}</h4>
+                                    <span class="text-sm text-gray-500">{{ answer.isCorrect ? '✅ Correcte' : '❌ Incorrecte' }}</span>
+                                </div>
+
+                                <p class="text-lg mb-4">📄 Réponse: {{ answer.answerText }}</p>
+
+                                <!-- Bottoni di azione -->
+                                <div class="flex space-x-4 mt-6">
+                                    <a href="{{ path('app_answer_show', {'id': answer.id}) }}" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">👁️ Voir</a>
+                                    <a href="{{ path('app_answer_edit', {'id': answer.id}) }}" class="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition">✏️ Modifier</a>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="bg-white p-6 shadow-lg rounded-xl border border-gray-300 text-center col-span-4">
+                                <p class="text-gray-500">🚫 Aucune réponse trouvée. 😢</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center text-gray-500">🚫 Aucun quiz trouvé. 😢</p>
+    {% endfor %}
+
+    <!-- Bottone per creare una nuova risposta -->
+    <div class="mt-8 text-center">
+        <a href="{{ path('app_answer_new') }}" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+            ➕ Créer une nouvelle réponse
+        </a>
+    </div>
+</div>
+{% endblock %}

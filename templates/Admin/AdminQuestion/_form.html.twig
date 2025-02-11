@@ -1,0 +1,29 @@
+<div class="flex justify-center items-center m-10">
+    <div class="bg-white shadow-lg rounded-2xl p-6 w-full max-w-lg">
+        {{ form_start(form, {'attr': {'class': 'quiz-form'}}) }}
+
+        <h1 class="text-center text-4xl font-bold text-blue-600 mb-6">
+            📌 {{ title }}
+        </h1>
+        
+        <div class="mb-4">
+            {{ form_label(form.question_text, '❓ Texte de la question', {'label_attr': {'class': 'block text-lg font-semibold mb-2'}}) }}
+            {{ form_widget(form.question_text, {'attr': {'class': 'w-full p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500'}}) }}
+        </div>
+
+        <div class="mb-4">
+            {{ form_label(form.quiz, '📚 Sélectionner un quiz', {'label_attr': {'class': 'block text-lg font-semibold mb-2'}}) }}
+            {{ form_widget(form.quiz, {'attr': {'class': 'w-full p-3 border rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500'}}) }}
+        </div>
+
+        <button class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg shadow-md transition">
+            ✅ {{ button_label|default('Enregistrer') }}
+        </button>
+
+        <a class="block text-blue-600 font-bold mb-6 hover:underline" href="{{ path('app_question_index') }}">
+            ⬅️ Back to List
+        </a>
+
+        {{ form_end(form) }}
+    </div>
+</div>

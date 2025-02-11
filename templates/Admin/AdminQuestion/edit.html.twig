@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Question{% endblock %}
+
+{% block body %}
+
+    {{ include('Admin/AdminQuestion/_form.html.twig', {'button_label': 'Update', 'title': 'Modifier la question'}) }}
+
+{% endblock %}

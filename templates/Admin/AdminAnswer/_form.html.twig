@@ -1,0 +1,12 @@
+<h1 class="text-2xl font-bold text-center text-blue-600">✏️ Modifier la réponse</h1>
+    
+{{ form_start(form, {'attr': {'class': 'space-y-4'}}) }}
+<div class="space-y-4">
+    {{ form_row(form.answer_text) }}
+    {{ form_row(form.is_correct) }}
+    {{ form_row(form.question) }}
+</div>
+
+<button type="submit" class="bg-green-500 text-white rounded py-2 px-4 mt-6">Enregistrer</button>
+
+{{ form_end(form) }}
